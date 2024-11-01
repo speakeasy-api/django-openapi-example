@@ -172,12 +172,22 @@ paths:
         book.
       summary: Get all books by the same author
       parameters:
+      - in: query
+        name: author
+        schema:
+          type: string
+        description: Filter books by author
       - in: path
         name: id
         schema:
           type: integer
         description: A unique integer value identifying this book.
         required: true
+      - in: query
+        name: published_date
+        schema:
+          type: string
+        description: Filter books by published date
       tags:
       - Books
       - Authors

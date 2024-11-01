@@ -1,4 +1,4 @@
-from drf_spectacular.utils import extend_schema, extend_schema_view, OpenApiExample
+from drf_spectacular.utils import extend_schema, extend_schema_view, OpenApiExample, OpenApiParameter
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.decorators import action
@@ -33,6 +33,10 @@ class BookViewSet(viewsets.ModelViewSet):
         description="Retrieve all books written by the same author as the specified book.",
         responses={200: BookSerializer(many=True)},
         tags=["Books", "Authors"],
+        parameters=[
+            OpenApiParameter(name='author', description='Filter books by author', required=False, type=str),
+            OpenApiParameter(name='published_date', description='Filter books by published date', required=False, type=str),
+        ],
         examples=[
         OpenApiExample(
             "Example Book",
