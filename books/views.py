@@ -1,4 +1,4 @@
-from drf_spectacular.utils import extend_schema, extend_schema_view, OpenApiExample, OpenApiParameter
+from drf_spectacular.utils import extend_schema, extend_schema_view, extend_schema_field, OpenApiExample, OpenApiParameter
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.decorators import action
@@ -28,6 +28,11 @@ class BookViewSet(viewsets.ModelViewSet):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
 
+    @extend_schema_field(int)
+    class CustomField(BookSerializer):
+        def to_representation(self, value):
+            return int(value)
+        
     @extend_schema(
         summary="Get all books by the same author",
         description="Retrieve all books written by the same author as the specified book.",
@@ -38,17 +43,17 @@ class BookViewSet(viewsets.ModelViewSet):
             OpenApiParameter(name='published_date', description='Filter books by published date', required=False, type=str),
         ],
         examples=[
-        OpenApiExample(
-            "Example Book",
-            summary="Example of a book object",
-            description="This example demonstrates how to use the Book API",
-            value={
-                "title": "A Tale of Two Cities",
-                "author": "Charles Dickens",
-                "published_date": "1859-04-30"
-            }
-        )
-    ],
+            OpenApiExample(
+                "Example Book",
+                summary="Example of a book object",
+                description="This example demonstrates how to use the Book API",
+                value={
+                    "title": "A Tale of Two Cities",
+                    "author": "Charles Dickens",
+                    "published_date": "1859-04-30"
+                }
+            )
+        ],
     )
     @action(detail=True, methods=['get'])
     def author_books(self, request, pk=None):
