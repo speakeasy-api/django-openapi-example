@@ -26,18 +26,20 @@ If you intend to generate an SDK, you'll need the Speakeasy CLI installed, or us
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/ritza-co/openapi-django.git
+git clone https://github.com/speakeasy-api/django-openapi-example.git
 ```
 
 2. Navigate into the directory:
 
 ```bash
-cd openapi-django
+cd django-openapi-example
 ```
 
-3. Install all dependencies with:
+3. Create a virtual environment and install all dependencies with:
 
 ```bash
+python -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 
@@ -67,7 +69,7 @@ curl -fsSL https://raw.githubusercontent.com/speakeasy-api/speakeasy/main/instal
 2. To generate the OpenAPI specification file in YAML format, run:
 
 ```bash
-./manage.py spectacular --file schema.yaml
+python manage.py spectacular --file schema.yaml
 ```
 
 3. To generate an SDK, run:
@@ -76,7 +78,7 @@ curl -fsSL https://raw.githubusercontent.com/speakeasy-api/speakeasy/main/instal
 speakeasy quickstart
 ```
 
-And follow the prompts.
+Follow the onscreen prompts to provide the necessary configuration details for your new SDK such as the name, schema location and output path. Enter `schema.yaml` when prompted for the OpenAPI document location, select a language and generate.
 
 ## License
 
