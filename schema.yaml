@@ -222,6 +222,16 @@ paths:
                   summary: Example of a book object
                   description: This example demonstrates how to use the Book API
           description: ''
+      x-speakeasy-retries:
+        strategy: backoff
+        backoff:
+          initialInterval: 500
+          maxInterval: 60000
+          maxElapsedTime: 3600000
+          exponent: 1.5
+        statusCodes:
+        - 5XX
+        retryConnectionErrors: true
 components:
   schemas:
     Book:
