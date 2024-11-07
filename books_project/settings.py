@@ -142,4 +142,18 @@ SPECTACULAR_SETTINGS = {
         },
     ],
     # OTHER SETTINGS
+    'EXTENSIONS_INFO': {
+        'x-speakeasy-retries': {
+            'strategy': 'backoff',
+            'backoff': {
+                'initialInterval': 500,
+                'maxInterval': 60000,
+                'maxElapsedTime': 3600000,
+                'exponent': 1.5,
+            },
+            'statusCodes': ['5XX'],
+            'retryConnectionErrors': True,
+        },
+    },
 }
+  

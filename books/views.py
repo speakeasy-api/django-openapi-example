@@ -37,6 +37,19 @@ class BookViewSet(viewsets.ModelViewSet):
         summary="Get all books by the same author",
         description="Retrieve all books written by the same author as the specified book.",
         responses={200: BookSerializer(many=True)},
+        extensions={
+            'x-speakeasy-retries': {
+                'strategy': 'backoff',
+                'backoff': {
+                    'initialInterval': 500,
+                    'maxInterval': 60000,
+                    'maxElapsedTime': 3600000,
+                    'exponent': 1.5,
+                },
+                'statusCodes': ['5XX'],
+                'retryConnectionErrors': True,
+            },
+        },
         tags=["Books", "Authors"],
         parameters=[
             OpenApiParameter(name='author', description='Filter books by author', required=False, type=str),
