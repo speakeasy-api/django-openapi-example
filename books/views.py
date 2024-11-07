@@ -1,10 +1,12 @@
-from drf_spectacular.utils import extend_schema, extend_schema_view, extend_schema_field, OpenApiExample, OpenApiParameter
+from drf_spectacular.utils import extend_schema, extend_schema_view, extend_schema_field, OpenApiExample, \
+    OpenApiParameter
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.decorators import action
 from django.shortcuts import get_object_or_404
 from .models import Book
 from .serializers import BookSerializer
+
 
 @extend_schema_view(
     list=extend_schema(
@@ -53,7 +55,8 @@ class BookViewSet(viewsets.ModelViewSet):
         tags=["Books", "Authors"],
         parameters=[
             OpenApiParameter(name='author', description='Filter books by author', required=False, type=str),
-            OpenApiParameter(name='published_date', description='Filter books by published date', required=False, type=str),
+            OpenApiParameter(name='published_date', description='Filter books by published date', required=False,
+                             type=str),
         ],
         examples=[
             OpenApiExample(
