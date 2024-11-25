@@ -17,9 +17,9 @@ django-admin openapi-django books_project
 
 ## Prerequisites
 
-The only requirement is that you have a supported version of Python (version 3.8 or late) installed on your machine.
+The only requirement is that you have a supported version of Python (version 3.8 or later) installed on your machine.
 
-If you intend to generate an SDK, you'll either need the Speakeasy CLI installed on your machine or be comfortably uising the Speakeasy dashboard UI.
+If you intend to generate an SDK, you'll either need the Speakeasy CLI installed on your machine or be comfortable using the Speakeasy dashboard UI.
 
 ## Installation
 
