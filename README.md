@@ -7,7 +7,7 @@
 
 </div>
 
-This example Django app demonstrates Speakeasy-recommended practices for generating clear OpenAPI specifications and SDKs.
+This example Django app demonstrates the Speakeasy-recommended practices for generating clear OpenAPI specifications and SDKs.
 
 This project was bootstrapped with Django:
 
@@ -17,9 +17,9 @@ django-admin openapi-django books_project
 
 ## Prerequisites
 
-The only pre-requisite needed is a supported version of Python installed, we recommend a version greater than 3.8.
+The only requirement is that you have a supported version of Python (version 3.8 or later) installed on your machine.
 
-If you intend to generate an SDK, you'll need the Speakeasy CLI installed, or use the Speakeasy dashboard.
+If you intend to generate an SDK, you'll either need the Speakeasy CLI installed on your machine or be comfortable using the Speakeasy dashboard UI.
 
 ## Installation
 
@@ -35,7 +35,7 @@ git clone https://github.com/speakeasy-api/django-openapi-example.git
 cd django-openapi-example
 ```
 
-3. Create a virtual environment and install all dependencies with:
+3. Create a virtual environment and install all dependencies with the following commands:
 
 ```bash
 python -m venv venv
@@ -78,7 +78,7 @@ python manage.py spectacular --file schema.yaml
 speakeasy quickstart
 ```
 
-Follow the onscreen prompts to provide the necessary configuration details for your new SDK such as the name, schema location and output path. Enter `schema.yaml` when prompted for the OpenAPI document location, select a language and generate.
+Follow the onscreen prompts to provide the necessary configuration details for your new SDK, such as the name, schema location, and output path. When prompted, enter `schema.yaml` for the OpenAPI document location, select a language, and generate.
 
 ## License
 
