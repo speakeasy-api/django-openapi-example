@@ -11,7 +11,8 @@
 
 </div>
 
-<hr />
+<h2>Speakeasy Django OpenAPI Example</h2>
+
 
 This example Django app demonstrates the Speakeasy-recommended practices for generating clear OpenAPI specifications and SDKs.
 
